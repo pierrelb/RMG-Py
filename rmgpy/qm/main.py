@@ -35,7 +35,7 @@ from rmgpy.qm.molecule import QMMolecule
 from rmgpy.qm.reaction import QMReaction
 import rmgpy.qm.mopac
 import rmgpy.qm.gaussian
-import rmgpy.qm.nwchem
+# import rmgpy.qm.nwchem
 from rmgpy.data.thermo import ThermoLibrary
 
 class QMSettings():

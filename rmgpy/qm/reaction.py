@@ -374,7 +374,7 @@ class QMReaction:
         sect = []
         for atom in reactant.split()[0].atoms: sect.append(atom.sortingLabel)
         
-        uncertainties = {'d12':0.02, 'd13':0.02, 'd23':0.02 } # distanceData.uncertainties or {'d12':0.1, 'd13':0.1, 'd23':0.1 } # default if uncertainty is None
+        uncertainties = {'d12':0.1, 'd13':0.1, 'd23':0.1 } #{'d12':0.02, 'd13':0.02, 'd23':0.02 } # distanceData.uncertainties or {'d12':0.1, 'd13':0.1, 'd23':0.1 } # default if uncertainty is None
         bm = self.setLimits(bm, lbl1, lbl2, distanceData.distances['d12'], uncertainties['d12'])
         bm = self.setLimits(bm, lbl2, lbl3, distanceData.distances['d23'], uncertainties['d23'])
         bm = self.setLimits(bm, lbl1, lbl3, distanceData.distances['d13'], uncertainties['d13'])
@@ -584,8 +584,8 @@ class QMReaction:
         with open(os.path.join(self.fileStore, 'rdkitDists.txt'), 'w') as distFile:
             distFile.write('d12: {0:.6f}, d13: {1:.6f}, d23: {2:.6f}'.format(d12, d13, d23))
         
-        check, notes =  self.tsSearch(notes, labels)
-        
+        # check, notes =  self.tsSearch(notes, labels)
+        check = True
         return check, notes
             
     def generateTSGeometryDoubleEnded(self, neb=False):
